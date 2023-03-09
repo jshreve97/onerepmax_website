@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate One Rep Max</title>
+</head>
+<body>
+    <h1>Calculate One Rep Max</h1>
+    <form method="POST" action="{{ url_for('index') }}">
+        {{ form.csrf_token }}
+        <label>{{ form.weight_lifted.label }} {{ form.weight_lifted }}</label>
+        {% for error in form.weight_lifted.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        <br>
+        <label>{{ form.reps_completed.label }} {{ form.reps_completed }}</label>
+        {% for error in form.reps_completed.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        <br>
+        {{ form.submit }}
+    </form>
+</body>
+</html>
